@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Ali Fraz | Edit To Do List {% endblock %}
+
+{% block content %}
+
+<h1>Lets Edit</h> 
+<br/>
+<hr/>
+    {% if item %}
+     
+            <form class="d-flex" role="add" method="POST">
+                {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="{{item.item}}" 
+                value='{{item.item}}' aria-label="Search" name='edit'> 
+                <input type="hidden" value='{{ item.completed }}' name = 'completed'>
+                <button class="btn btn-outline-success" type="submit">Edit</button>
+            </form>
+      
+
+    {%  endif%}
+{% endblock %}
